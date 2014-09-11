@@ -86,6 +86,18 @@
         }
 
         /// <summary>
+        /// Add multiple items to the collection
+        /// </summary>
+        /// <param name="items"></param>
+        public void AddRange(IEnumerable<T> items)
+        {
+            foreach (var item in items)
+            {
+                this.Add(item);
+            }
+        }
+
+        /// <summary>
         /// Clear the collection
         /// </summary>
         public void Clear()
