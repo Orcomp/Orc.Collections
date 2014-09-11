@@ -22,9 +22,6 @@
 	<projectUrl>https://github.com/Orcomp/Orc.Collections</projectUrl>
 	<!--<licenseUrl>http://catel.codeplex.com/license</licenseUrl>-->
 	<!--<iconUrl>http://www.catenalogic.com/catel.png</iconUrl>-->
-    
-    <dependencies>
-      <dependency id="Catel.Core" version="[replaced]" />
-    </dependencies>
+
   </metadata>
 </package>
