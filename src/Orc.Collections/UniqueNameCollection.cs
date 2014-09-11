@@ -124,7 +124,6 @@
 
         /// <summary>
         /// Remove the item from the collection.
-        /// Time Complexity: O(1)
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
@@ -135,7 +134,6 @@
 
         /// <summary>
         /// Remove an item by its name
-        /// Time Complexity: O(1) 
         /// </summary>
         /// <param name="name"></param>
         public bool Remove(string name)
