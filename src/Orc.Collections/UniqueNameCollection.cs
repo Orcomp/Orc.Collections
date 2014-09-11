@@ -1,4 +1,11 @@
-﻿namespace Orc.Collections
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="UniqueNameCollection.cs" company="Orchestra development team">
+//   Copyright (c) 2008 - 2014 Orchestra development team. All rights reserved.
+// </copyright>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+namespace Orc.Collections
 {
     using System.Collections;
     using System.Collections.Generic;
@@ -14,8 +21,11 @@
     public class UniqueNameCollection<T> : ICollection<T>
         where T : class, IUniqueName
     {
+        #region Fields
         private readonly Dictionary<string, T> _nameToObject;
+        #endregion
 
+        #region Constructors
         public UniqueNameCollection()
         {
             _nameToObject = new Dictionary<string, T>();
@@ -25,16 +35,15 @@
         {
             _nameToObject = items.ToDictionary(x => x.Name, x => x);
         }
+        #endregion
 
+        #region ICollection<T> Members
         /// <summary>
         /// Return the number of items in the collection
         /// </summary>
         public int Count
         {
-            get
-            {
-                return this._nameToObject.Count;
-            }
+            get { return _nameToObject.Count; }
         }
 
         /// <summary>
@@ -42,36 +51,7 @@
         /// </summary>
         public bool IsReadOnly
         {
-            get
-            {
-                return false;
-            }
-        }
-
-        /// <summary>
-        /// Get object associated with name. If no item is found return null.
-        /// Time Complexity: O(1)
-        /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        public T Get(string name)
-        {
-            return this.Contains(name) ? this._nameToObject[name] : null;
-        }
-
-        /// <summary>
-        /// Returns true or false depending on whether the name exists in the collection,
-        /// and return the associated object if it exits; null otherwise.
-        /// Time Complexity: O(1)
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="item"></param>
-        /// <returns></returns>
-        public bool TryGet(string name, out T item)
-        {
-            item = this.Get(name);
-
-            return item != null;
+            get { return false; }
         }
 
         /// <summary>
@@ -106,17 +86,6 @@
             return _nameToObject.ContainsKey(item.Name);
         }
 
-        /// <summary>
-        /// Check if collection contains an item with a given name.
-        /// Time Complexity: O(1)
-        /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        public bool Contains(string name)
-        {
-            return this._nameToObject.ContainsKey(name);
-        }
-
         public void CopyTo(T[] array, int arrayIndex)
         {
             throw new System.NotImplementedException();
@@ -132,15 +101,6 @@
             return _nameToObject.Remove(item.Name);
         }
 
-        /// <summary>
-        /// Remove an item by its name
-        /// </summary>
-        /// <param name="name"></param>
-        public bool Remove(string name)
-        {
-            return this._nameToObject.Remove(name);
-        }
-
         public IEnumerator<T> GetEnumerator()
         {
             return _nameToObject.Values.GetEnumerator();
@@ -148,7 +108,56 @@
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return this.GetEnumerator();
+            return GetEnumerator();
         }
+        #endregion
+
+        #region Methods
+        /// <summary>
+        /// Get object associated with name. If no item is found return null.
+        /// Time Complexity: O(1)
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public T Get(string name)
+        {
+            return Contains(name) ? _nameToObject[name] : null;
+        }
+
+        /// <summary>
+        /// Returns true or false depending on whether the name exists in the collection,
+        /// and return the associated object if it exits; null otherwise.
+        /// Time Complexity: O(1)
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public bool TryGet(string name, out T item)
+        {
+            item = Get(name);
+
+            return item != null;
+        }
+
+        /// <summary>
+        /// Check if collection contains an item with a given name.
+        /// Time Complexity: O(1)
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public bool Contains(string name)
+        {
+            return _nameToObject.ContainsKey(name);
+        }
+
+        /// <summary>
+        /// Remove an item by its name
+        /// </summary>
+        /// <param name="name"></param>
+        public bool Remove(string name)
+        {
+            return _nameToObject.Remove(name);
+        }
+        #endregion
     }
 }

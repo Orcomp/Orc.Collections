@@ -1,7 +1,16 @@
-﻿namespace Orc.Collections
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="IUniqueName.cs" company="Orchestra development team">
+//   Copyright (c) 2008 - 2014 Orchestra development team. All rights reserved.
+// </copyright>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+namespace Orc.Collections
 {
     public interface IUniqueName
     {
-        string Name { get; set; } 
+        #region Properties
+        string Name { get; set; }
+        #endregion
     }
 }
