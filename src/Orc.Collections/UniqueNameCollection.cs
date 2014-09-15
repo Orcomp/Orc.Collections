@@ -100,7 +100,7 @@ namespace Orc.Collections
 
         public void CopyTo(T[] array, int arrayIndex)
         {
-            throw new System.NotImplementedException();
+            _nameToObject.Values.CopyTo(array, arrayIndex);
         }
 
         /// <summary>

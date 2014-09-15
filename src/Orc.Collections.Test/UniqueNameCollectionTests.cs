@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     using NUnit.Framework;
 
@@ -184,6 +185,24 @@
             var result = uniqueNameCollection.Remove(test);
 
             Assert.False(result);
+        }
+
+        [Test]
+        public void UniqueNameCollection_EnumerateCollection()
+        {
+            var hello = new Order("hello");
+            var world = new Order("world");
+            var test = new Order("test");
+
+            var orders = new List<Order>() { hello, world, test };
+
+            var uniqueNameCollection = new UniqueNameCollection<Order>(orders);
+
+            var collection = uniqueNameCollection.ToArray();
+
+            var expected = new[] { hello, world, test};
+
+            Assert.AreEqual(expected, collection);
         }
     }
 }
