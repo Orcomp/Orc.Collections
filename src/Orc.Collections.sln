@@ -4,7 +4,7 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.Collections", "Orc.Collections\Orc.Collections.csproj", "{F99E2E90-1C99-4938-AD99-BCF6666A6556}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.Collections.Test", "Orc.Collections.Test\Orc.Collections.Test.csproj", "{4CE3FB33-42C2-4AD3-B7A6-D6E0AA0DD752}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.Collections.Tests", "Orc.Collections.Tests\Orc.Collections.Tests.csproj", "{4CE3FB33-42C2-4AD3-B7A6-D6E0AA0DD752}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{B1288A31-E614-4E22-B521-95195A3BC7EA}"
 	ProjectSection(SolutionItems) = preProject
